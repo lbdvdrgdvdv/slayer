@@ -1,3 +1,3 @@
 # Sluga
 Crash bot for discord servers  
-No documentation
+No documentation yet
