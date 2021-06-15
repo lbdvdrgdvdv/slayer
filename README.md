@@ -1,4 +1,3 @@
 # Sluga
-Краш-бот для дискорд серверов
-
-Документации нет
+Crash bot for discord servers  
+No documentation
