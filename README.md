@@ -9,7 +9,7 @@ sudo apt install git python3;cd;git clone https://github.com/ICEGXG/slayer;cd sl
 ```
 ### > For Termux:
 ```
-sudo pkg install git python;cd;git clone https://github.com/ICEGXG/slayer;cd slayer;pip3 install -r requirements.txt;python3 slayer.py
+pkg install git python;cd;git clone https://github.com/ICEGXG/slayer;cd slayer;pip3 install -r requirements.txt;python3 slayer.py
 ```  
 ---
 **Command descriptions will be added soon**
